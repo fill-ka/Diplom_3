@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators.variables import *
+from locators.locators import *
 
 
 class LoginPage:
@@ -14,11 +15,11 @@ class LoginPage:
 
     def login(self, email, password):
         # Вводим email
-        self.driver.find_element(By.NAME, "email").send_keys(email)
+        self.driver.find_element(*PasswordResetLocators.EMAIL_INPUT).send_keys(email)
         # Вводим пароль
-        self.driver.find_element(By.NAME, "password").send_keys(password)
+        self.driver.find_element(*PasswordResetLocators.PASSWORD_INPUT).send_keys(password)
         # Кликаем по кнопке "Войти"
-        self.driver.find_element(By.XPATH, "//button[text()='Войти']").click()
+        self.driver.find_element(*PasswordResetLocators.LOGIN_BUTTON).click()
 
         # Ждём, пока не откроется страница личного кабинета
         WebDriverWait(self.driver, 10).until(

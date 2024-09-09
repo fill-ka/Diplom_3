@@ -1,4 +1,4 @@
-from locators.locators import AccountPageLocators
+from locators.locators import *
 from locators.variables import *
 from selenium.webdriver.common.by import By
 
@@ -11,9 +11,9 @@ class AccountPage:
 
     def login(self, email, password):
         self.driver.get(f"{BASE_URL}/login")
-        self.driver.find_element(By.NAME, "email").send_keys(email)
-        self.driver.find_element(By.NAME, "password").send_keys(password)
-        self.driver.find_element(By.XPATH, "//button[text()='Войти']").click()
+        self.driver.find_element(*PasswordResetLocators.EMAIL_INPUT).send_keys(email)
+        self.driver.find_element(*PasswordResetLocators.PASSWORD_INPUT).send_keys(password)
+        self.driver.find_element(*PasswordResetLocators.LOGIN_BUTTON).click()
 
     def go_to_order_history(self):
         history_button = self.driver.find_element(*AccountPageLocators.ORDER_HISTORY_BUTTON)

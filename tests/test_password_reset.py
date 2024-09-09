@@ -24,4 +24,4 @@ class TestPasswordReset:
         page = PasswordResetPage(self.driver)
         page.open()
         page.toggle_password_visibility()
-        # Проверить, что поле подсвечивается или что пароль виден (заглушка)
+        assert page.is_password_visible(), "Password should be visible after toggling"
