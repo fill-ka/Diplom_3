@@ -1,5 +1,7 @@
+import allure
 import pytest
 from page_objects.password_reset_page import PasswordResetPage
+from locators.variables import *
 
 
 @pytest.mark.usefixtures("init_driver")
@@ -8,18 +10,21 @@ class TestPasswordReset:
     def __init__(self):
         self.driver = None
 
+    @allure.title("Navigationt to password recovery page")
     def test_password_reset_navigation(self):
         page = PasswordResetPage(self.driver)
         page.open()
         assert "reset-password" in self.driver.current_url
 
+    @allure.title("Password reset functionality")
     def test_password_reset_functionality(self):
         page = PasswordResetPage(self.driver)
         page.open()
-        page.enter_email("test@example.com")
+        page.enter_email(email)
         page.click_reset_button()
-        # Проверка появления уведомления об успешном запросе (заглушка)
+        assert page.is_on_recovery_password_page()
 
+    @allure.title("Visible password toggle")
     def test_toggle_password_visibility(self):
         page = PasswordResetPage(self.driver)
         page.open()

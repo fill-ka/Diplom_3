@@ -1,3 +1,4 @@
+import allure
 import pytest
 from page_objects.oreder_feed_page import OrdersFeedPage
 
@@ -8,11 +9,15 @@ class TestOrdersFeed:
     def __init__(self):
         self.driver = None
 
+    @allure.title("View order details")
     def test_view_order_details(self):
         page = OrdersFeedPage(self.driver)
         page.open()
         page.view_order_details("#0116823")
+        order_number_displayed = page.get_order_number()
+        assert order_number_displayed == "#0116823"
 
+    @allure.title("Order counts")
     def test_order_counts(self):
         page = OrdersFeedPage(self.driver)
         page.open()

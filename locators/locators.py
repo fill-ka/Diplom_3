@@ -7,6 +7,7 @@ class PasswordResetLocators:
     TOGGLE_PASSWORD = (By.CSS_SELECTOR, ".toggle-password-btn")
     PASSWORD_INPUT = (By.CSS_SELECTOR, ".//input[@type='password']")
     LOGIN_BUTTON = (By.CSS_SELECTOR, "//button[text()='Войти']")
+    PASSWORD_RECOVERY = (By.XPATH, ".//h2[text()='Восстановление пароля']")
 
 
 class AccountPageLocators:
