@@ -12,26 +12,26 @@ class TestAccountPage:
         self.driver = None
 
     @allure.title("Navigate to Account Page")
-    def test_account_navigation(self, browser):
-        page = AccountPage(browser)
-        login_page = LoginPage(browser)
+    def test_account_navigation(self, init_driver):
+        page = AccountPage(init_driver)
+        login_page = LoginPage(init_driver)
 
-        login_page.open()
+        login_page.open(BASE_URL)
         login_page.login(email, password)
 
-        page.open()
-        assert "account" in browser.current_url
+        page.open(BASE_URL)
+        assert "account" in init_driver.current_url
 
     @allure.title("Go to Order History")
     def test_go_to_order_history(self):
         page = AccountPage(self.driver)
-        page.open()
+        page.open(BASE_URL)
         page.go_to_order_history()
         assert "account/orders" in self.driver.current_url
 
     @allure.title("Logout")
     def test_logout(self):
         page = AccountPage(self.driver)
-        page.open()
+        page.open(BASE_URL)
         page.logout()
         assert "login" in self.driver.current_url

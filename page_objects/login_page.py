@@ -4,11 +4,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators.variables import *
 from locators.locators import *
 import allure
+from page_objects.base_page import BasePage
 
 
-class LoginPage:
-    def __init__(self, driver):
-        self.driver = driver
+class LoginPage(BasePage):
 
     @allure.step("Open the login page")
     def open(self):

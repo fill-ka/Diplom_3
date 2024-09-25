@@ -2,11 +2,11 @@ import allure
 
 from locators.locators import *
 from locators.variables import *
+from page_objects.base_page import BasePage
 from selenium.webdriver.common.by import By
 
-class AccountPage:
-    def __init__(self, driver):
-        self.driver = driver
+
+class AccountPage(BasePage):
 
     @allure.step("Open Account Page")
     def open(self):

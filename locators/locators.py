@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class PasswordResetLocators:
-    EMAIL_INPUT = (By.CSS_SELECTOR, "input[name='email']")
+    EMAIL_INPUT = (By.XPATH, ".//input[@name = 'name']")
     RESET_BUTTON = (By.XPATH, "//button[text()='Восстановить']")
     TOGGLE_PASSWORD = (By.CSS_SELECTOR, ".toggle-password-btn")
     PASSWORD_INPUT = (By.CSS_SELECTOR, ".//input[@type='password']")
@@ -11,27 +11,30 @@ class PasswordResetLocators:
 
 
 class AccountPageLocators:
-    ACCOUNT_BUTTON = (By.CSS_SELECTOR, "a[href='/account']")
-    ORDER_HISTORY_BUTTON = (By.CSS_SELECTOR, "a[href='/account/orders']")
-    LOGOUT_BUTTON = (By.CSS_SELECTOR, "button.logout-btn")
+    ACCOUNT_BUTTON = (By.XPATH, ".//a[text() = 'Профиль']")
+    ORDER_HISTORY_BUTTON = (By.XPATH, ".//a[text() = 'История заказов']")
+    LOGOUT_BUTTON = (By.XPATH, ".//button[text() = 'Выход']")
 
 
 class ConstructorPageLocators:
     CONSTRUCTOR_BUTTON = (By.XPATH, ".//p[text()='Конструктор']")
-    INGREDIENT_ITEM = (By.CSS_SELECTOR, ".ingredient-item")
+    INGREDIENT_ITEM = (By.XPATH, ".//img[@alt = 'Флюоресцентная булка R2-D3']")
     ADD_TO_ORDER_BUTTON = (By.XPATH, "//button[text()='Добавить']")
-    ORDER_COUNTER = (By.CSS_SELECTOR, ".order-counter")
-    LENTA_ZAKAZOV = (By.CSS_SELECTOR,"//a[text()='Лента заказов']")
+    ORDER_COUNTER = (By.XPATH, ".//h2[contains(@class, 'Modal_modal__title_shadow')]")
+    LENTA_ZAKAZOV = (By.XPATH, ".//p[contains(text(), 'Лента Заказов')]")
     CREATE_ORDER = (By.XPATH, "//button[text()='Оформить заказ']")
-    ORDER_CONFIRMATION_MASSAGE = (By.CSS_SELECTOR, ".order-confirmation-message")
+    ORDER_CONFIRMATION_MASSAGE = (By.XPATH, ".//div[contains(@class, 'Modal_modal__container')]")
 
 
 class OrderHistoryPageLocators:
-    ORDER_ITEM = (By.CSS_SELECTOR, ".order-item")
+    ORDER_ITEM = (By.XPATH, ".//li[contains(@class, 'OrderHistory_listItem')]")
     ORDER_DETAILS_POPUP = (By.CSS_SELECTOR, ".order-details-popup")
-    ORDER_COUNT = (By.CSS_SELECTOR, ".order-count")
-    CREATE_ORDER_BUTTON = (By.CSS_SELECTOR, "button.create-order-btn")
+    ORDER_COUNT = (By.XPATH, ".//p[contains(@class, 'text_type_digits-default')]")
+    CREATE_ORDER_BUTTON = (By.XPATH, ".//button[text() = 'Оформить заказ']")
+
 
 class OrderFeedPageLocators:
-    TOTAL_COUNTER = (By.CSS_SELECTOR, ".total-count")
-    TODAY_COUNT = (By.CSS_SELECTOR, ".today-count")
+    TOTAL_COUNTER = (
+        By.XPATH, ".//p[text()='Выполнено за все время:']/following-sibling::p[contains(@class, 'OrderFeed_number')]")
+    TODAY_COUNT = (
+        By.XPATH, ".//p[text()='Выполнено за сегодня:']/following-sibling::p[contains(@class, 'OrderFeed_number')]")

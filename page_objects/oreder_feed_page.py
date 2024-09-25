@@ -1,15 +1,13 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from page_objects.base_page import BasePage
 from locators.variables import *
 from locators.locators import *
 import allure
 
 
-class OrdersFeedPage:
-    def __init__(self, driver):
-        self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
+class OrdersFeedPage(BasePage):
 
     @allure.step("Open the orders feed page")
     def open(self):

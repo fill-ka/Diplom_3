@@ -1,10 +1,10 @@
 from locators.locators import OrderHistoryPageLocators
 from locators.variables import *
+from page_objects.base_page import BasePage
 import allure
 
-class OrderHistoryPage:
-    def __init__(self, driver):
-        self.driver = driver
+
+class OrderHistoryPage(BasePage):
 
     @allure.step("Open the order history page")
     def open(self):
