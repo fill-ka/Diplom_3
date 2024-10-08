@@ -16,6 +16,7 @@ class AccountPageLocators:
     LOGOUT_BUTTON = (By.XPATH, ".//button[text() = 'Выход']")
 
 
+
 class ConstructorPageLocators:
     CONSTRUCTOR_BUTTON = (By.XPATH, ".//p[text()='Конструктор']")
     INGREDIENT_ITEM = (By.XPATH, ".//img[@alt = 'Флюоресцентная булка R2-D3']")
