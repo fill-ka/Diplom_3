@@ -25,7 +25,6 @@ class TestPasswordReset:
         assert page.is_on_recovery_password_page()
 
     @allure.title("Visible password toggle")
-
     def test_toggle_password_visibility(self):
         page = PasswordResetPage(self.driver)
         page.open(BASE_URL)
